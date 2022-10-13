@@ -87,7 +87,7 @@
     font-weight: bold;
 }
 
-.pvp-main button{
+.pvp-main button {
     margin-top: 2rem;
     padding: .8rem 3rem;
     background-color: var(--yellow);
@@ -114,11 +114,83 @@
     background-color: var(--dark);
     color: var(--light);
     width: 100%;
+    display: flex;
+    justify-content: center;
     height: 100vh;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
 }
 
 .playervsplayer-title {
     font-size: 25px;
     text-align: center;
     padding-top: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    border: none;
+}
+
+.case {
+    width: 100px;
+    height: 100px;
+    color: var(--light);
+    font-size: 5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.playervsplayer-main button {
+    margin-top: 1rem;
+    width: 150px;
+    background-color: var(--dark);
+    color: var(--light);
+    border: 1px solid var(--light);
+    border-radius: .25em;
+}
+
+.grid .case:nth-child(2) {
+    border: 1px solid var(--light);
+    border-bottom: none;
+    border-top: none;
+}
+.grid .case:nth-child(4) {
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+}
+
+.grid .case:nth-child(5) {
+    border: 1px solid var(--light);
+}
+
+.grid .case:nth-child(6) {
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+}
+
+.grid .case:nth-child(8) {
+    border: 1px solid var(--light);
+    border-bottom: none;
+    border-top: none;
+}
+
+.playerO {
+    color: var(--blue);
+}
+
+.playerX {
+    color: var(--yellow);
+}
+
+.hide {
+    display: none;
 }
