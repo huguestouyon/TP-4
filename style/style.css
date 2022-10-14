@@ -87,6 +87,10 @@
     font-weight: bold;
 }
 
+.input[type='text']{
+    background-color: var(--dark);
+}
+
 .pvp-main button {
     margin-top: 2rem;
     padding: .8rem 3rem;
@@ -104,6 +108,7 @@
 }
 
 .error {
+    font-weight: bold;
     color: var(--red);
     font-size: 14px;
 }
@@ -115,7 +120,6 @@
     color: var(--light);
     width: 100%;
     display: flex;
-    justify-content: center;
     height: 100vh;
     flex-direction: column;
     align-content: center;
@@ -123,9 +127,10 @@
 }
 
 .playervsplayer-title {
-    font-size: 25px;
+    font-size: 3em;
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
+    text-transform: uppercase;
 }
 
 .grid {
@@ -136,6 +141,7 @@
     height: 300px;
     justify-content: center;
     border: none;
+    margin-top: 2rem;
 }
 
 .case {
@@ -157,6 +163,8 @@
     border: 1px solid var(--light);
     border-radius: .25em;
 }
+
+
 
 .grid .case:nth-child(2) {
     border: 1px solid var(--light);
@@ -185,12 +193,39 @@
 
 .playerO {
     color: var(--blue);
+    text-transform: uppercase;
 }
 
 .playerX {
     color: var(--yellow);
+    text-transform: uppercase;
 }
 
 .hide {
     display: none;
+}
+
+.nextPlayer {
+    font-size: 30px;
+    margin-top: 1rem;
+    border: 2px solid var(--red);
+    padding: 1rem 2rem;
+    border-radius: 100%;
+}
+
+.shots-remaining {
+    color: var(--red);
+    font-weight: bold;
+}
+
+.shot {
+    margin-top: 1rem;
+}
+
+.score {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bold;
 }
