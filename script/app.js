@@ -10,10 +10,15 @@ window.addEventListener('DOMContentLoaded', function () {
     const namePlayerO = localStorage.getItem('namePlayerTwo') // Récupère J2
     const shotRem = document.querySelector('.shots-remaining') // Récupère la div affichant le nb de coups restants
     const shot = document.querySelector('.shot') // Récupère le span dans la div .shots-remaining
-
+    const numberOfGame = localStorage.getItem('numberGame')
+    let scorePlayerX = document.querySelector('#scorePX')
+    let scorePlayerO = document.querySelector('#scorePO')
+    // console.log(scorePlayerX.innerText)
+    // console.log(scorePlayerO.innerText)
+    // console.log(numberOfGame)
     // Titre
     title.innerHTML = '<span class="playerX">' + namePlayerX + '</span>' + ' VS ' + '<span class="playerO">' + namePlayerO + '</span>'
-
+    
     // Créer un jeu vide
     let game = ['', '', '', '', '', '', '', '', '']
     let countGame = game.length
@@ -78,8 +83,8 @@ window.addEventListener('DOMContentLoaded', function () {
             if (activePlayer === 'X') {
                 announce(pxWin) // annonce la victoire pour X
                 shot.classList.add('hide')
-
-                // const namePlayerO = l // Récupère J2
+                let test = localStorage.setItem('test', numberOfGame)
+                console.log(test)
             }
             else {
                 announce(poWin) // annonce la victoire pour O
@@ -100,9 +105,10 @@ window.addEventListener('DOMContentLoaded', function () {
         switch (type) { // Switch utile quand on veut faire un nombre défini de possibilités
             case poWin:
                 announcer.innerHTML = 'Joueur <span class="playerO">'+namePlayerO+'</span> Gagne ! 🦾'; // Ajoute un message si O gagne
-                break;
+                //score.innerHTML = '<div>'+'</div>' + '<div>'+'</div>'
             case pxWin:
                 announcer.innerHTML = 'Joueur <span class="playerX">'+namePlayerX+'</span> Gagne ! 🦾'; // Ajoute un message si X gagne 
+                //score.innerHTML = '<div>'+'</div>' + '<div>'+'</div>'
                 break;
             case equality:
                 announcer.innerText = 'Égalité ! 🔐';
@@ -153,7 +159,7 @@ window.addEventListener('DOMContentLoaded', function () {
             updateGame(index) // on met à jour le tableau de jeu
             countGame -= 1;
             shotRem.innerHTML = countGame
-            console.log(countGame)
+            // console.log(countGame)
             validation() // on recherche si c'est gagné
             changePlayer() // on change de joueur
         }
@@ -167,7 +173,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (activePlayer === 'O' || activePlayer === 'X') { //   
             changePlayer() // change de joueur
         }
-
+        // Pour toutes les cases 
         cases.forEach(function (caseF) {
             // Reset les cases
             caseF.innerText = '';
@@ -176,11 +182,10 @@ window.addEventListener('DOMContentLoaded', function () {
             caseF.classList.remove('playerO')
             shot.classList.remove('hide')
             shotRem.innerHTML = game.length
-            console.log(countGame)
         });
     }
     // écouteur pour toutes les cases
-    cases.forEach(function (caseF, index) {
+    cases.forEach(function(caseF, index) {
         caseF.addEventListener('click', function () {
             user(caseF, index) // lance la fonction user
         });

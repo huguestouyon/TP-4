@@ -87,8 +87,19 @@
     font-weight: bold;
 }
 
-.input[type='text']{
+input[type='text']{
     background-color: var(--dark);
+}
+
+input[type='number'] {
+    background-color: var(--dark);
+    border: 1px solid var(--light);
+    width: 50%;
+    border-radius: .25em;
+    color: var(--light);
+    text-align: center;
+    padding: .5rem 0;
+    margin-bottom: 1rem;
 }
 
 .pvp-main button {
