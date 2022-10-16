@@ -10,15 +10,16 @@ window.addEventListener('DOMContentLoaded', function () {
     const namePlayerO = localStorage.getItem('namePlayerTwo') // Récupère J2
     const shotRem = document.querySelector('.shots-remaining') // Récupère la div affichant le nb de coups restants
     const shot = document.querySelector('.shot') // Récupère le span dans la div .shots-remaining
-    const numberOfGame = localStorage.getItem('numberGame')
     let scorePlayerX = document.querySelector('#scorePX')
     let scorePlayerO = document.querySelector('#scorePO')
-    // console.log(scorePlayerX.innerText)
-    // console.log(scorePlayerO.innerText)
-    // console.log(numberOfGame)
+    let scoreX = 0
+    let scoreO = 0
+    console.log(scorePlayerX.innerText)
+    console.log(scorePlayerO.innerText)
+    //console.log(numberOfGame)
     // Titre
     title.innerHTML = '<span class="playerX">' + namePlayerX + '</span>' + ' VS ' + '<span class="playerO">' + namePlayerO + '</span>'
-    
+
     // Créer un jeu vide
     let game = ['', '', '', '', '', '', '', '', '']
     let countGame = game.length
@@ -83,20 +84,64 @@ window.addEventListener('DOMContentLoaded', function () {
             if (activePlayer === 'X') {
                 announce(pxWin) // annonce la victoire pour X
                 shot.classList.add('hide')
-                let test = localStorage.setItem('test', numberOfGame)
-                console.log(test)
+                localStorage.setItem('numberGame', localStorage.getItem('numberGame') - 1)
+                scoreX++
+                scorePlayerX.innerHTML = scoreX
+                if (localStorage.getItem('numberGame') == 0) {
+                    if(scoreO > scoreX) {
+                        let messWin = 'GG : ' + namePlayerO + ' WIN !'
+                        if(!alert(messWin)) document.location = 'pvp.html';
+                    }
+                    else if (scoreX > scoreO){
+                        let messWin = alert('GG : ' + namePlayerX + 'WIN !')
+                        if(!alert(messWin)) document.location = 'pvp.html';
+                    }
+                    else if (scoreX === scoreO) {
+                        let messWin = alert('Match Nul !')
+                        if(!alert(messWin)) document.location = 'pvp.html';
+                    }
+                }
             }
             else {
                 announce(poWin) // annonce la victoire pour O
                 shot.classList.add('hide')
+                localStorage.setItem('numberGame', localStorage.getItem('numberGame') - 1)
+                scoreO++
+                scorePlayerO.innerHTML = scoreO
+                if (localStorage.getItem('numberGame') == 0) {
+                    if(scoreO > scoreX) {
+                        let messWin = 'GG : ' + namePlayerO + ' WIN !'
+                        if(!alert(messWin)) document.location = 'pvp.html';
+                    }
+                    else if (scoreX > scoreO){
+                        let messWin = alert('GG : ' + namePlayerX + 'WIN !')
+                        if(!alert(messWin)) document.location = 'pvp.html';
+                    }
+                }
             }
             activeGame = false // arrête le jeu
             shot.classList.add('hide')
             return;
         }
         // si plus de place et pas de résultat
-        if (!game.includes(''))
-            announce(equality) // Annonce de l'égalité         
+        if (!game.includes('')) {
+            announce(equality) // Annonce de l'égalité        
+            localStorage.setItem('numberGame', localStorage.getItem('numberGame') - 1)
+            if (localStorage.getItem('numberGame') == 0) {
+                if(scoreO > scoreX) {
+                    let messWin = 'GG : ' + namePlayerO + ' WIN !'
+                    if(!alert(messWin)) document.location = 'pvp.html';
+                }
+                else if (scoreX > scoreO){
+                    let messWin = alert('GG : ' + namePlayerX + 'WIN !')
+                    if(!alert(messWin)) document.location = 'pvp.html';
+                }
+                else if (scoreX === scoreO) {
+                    let messWin = alert('Match Nul !')
+                    if(!alert(messWin)) document.location = 'pvp.html';
+                }
+            }
+        }
     }
 
     // Création d'annonce 
@@ -104,10 +149,10 @@ window.addEventListener('DOMContentLoaded', function () {
         //console.log(type)
         switch (type) { // Switch utile quand on veut faire un nombre défini de possibilités
             case poWin:
-                announcer.innerHTML = 'Joueur <span class="playerO">'+namePlayerO+'</span> Gagne ! 🦾'; // Ajoute un message si O gagne
-                //score.innerHTML = '<div>'+'</div>' + '<div>'+'</div>'
+                announcer.innerHTML = 'Joueur <span class="playerO">' + namePlayerO + '</span> Gagne ! 🦾'; // Ajoute un message si O gagne
+            //score.innerHTML = '<div>'+'</div>' + '<div>'+'</div>'
             case pxWin:
-                announcer.innerHTML = 'Joueur <span class="playerX">'+namePlayerX+'</span> Gagne ! 🦾'; // Ajoute un message si X gagne 
+                announcer.innerHTML = 'Joueur <span class="playerX">' + namePlayerX + '</span> Gagne ! 🦾'; // Ajoute un message si X gagne 
                 //score.innerHTML = '<div>'+'</div>' + '<div>'+'</div>'
                 break;
             case equality:
@@ -123,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function () {
         else {
             return true
         }
-    };
+    }
     // function pour récupérer l'index dans un tableau 2 dimensions
     const updateGame = function (index) { // peut-être écris (index) => {}
         game[index] = activePlayer // ajoute l'active player dans le jeu tableau de jeu
@@ -185,7 +230,7 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
     // écouteur pour toutes les cases
-    cases.forEach(function(caseF, index) {
+    cases.forEach(function (caseF, index) {
         caseF.addEventListener('click', function () {
             user(caseF, index) // lance la fonction user
         });
