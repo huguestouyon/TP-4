@@ -51,26 +51,26 @@ body {
 }
 
 .grid .case:nth-child(2) {
-    border: 1px solid var(--light);
+    border: 1px solid var(--grey);
     border-bottom: none;
     border-top: none;
 }
 .grid .case:nth-child(4) {
-    border-top: 1px solid var(--light);
-    border-bottom: 1px solid var(--light);
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
 }
 
 .grid .case:nth-child(5) {
-    border: 1px solid var(--light);
+    border: 1px solid var(--grey);
 }
 
 .grid .case:nth-child(6) {
-    border-top: 1px solid var(--light);
-    border-bottom: 1px solid var(--light);
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
 }
 
 .grid .case:nth-child(8) {
-    border: 1px solid var(--light);
+    border: 1px solid var(--grey);
     border-bottom: none;
     border-top: none;
 }
@@ -104,19 +104,47 @@ body {
 }
 
 .team-one {
-    background-color: var(--dark);
     grid-area: 1 / 1 / 2 / 6;
+
+}
+
+.container-playerO {
     border: 1px solid var(--grey);
-    border-right: none;
-    border-left: none;
+    width: 100%;
+    margin-top: .5rem;
+    height: 70%
+}
+
+.container-playerX {
+    border: 1px solid var(--grey);
+    width: 100%;
+    margin-top: .5rem;
+    height: 70%
 }
 
 .team-two {
     /* border: 1px solid var(--blue); */
     grid-area: 1 / 8 / 2 / 13;
+    text-align: right;
+
+}
+
+.team-one h3 {
+    margin-left: 1rem;
+    color: #18BC9C;
+}
+
+.team-two h3 {
+    margin-right: 1rem;
+    color: #ee6677;
+}
+
+.team-one, .team-two {
     border: 1px solid var(--grey);
     border-left: none;
     border-right: none;
+    padding: 1rem;
+
 }
 
 .score {
@@ -164,3 +192,12 @@ body {
 .response-end-game {
     text-align: center;
 }
+
+.scoreO {
+    color: #ee6677
+}
+
+.scoreX {
+    color: #18BC9C
+}
+

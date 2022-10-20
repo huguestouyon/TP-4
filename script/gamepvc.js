@@ -5,23 +5,36 @@ window.addEventListener('DOMContentLoaded', function () {
     let countX = 0
     let countO = 0
     function responseWinner(winner) {
-        responseEndGame.innerHTML = winner + ' a gagné !'
-        //console.log(winner)
         if(winner === 'O') {
+            document.querySelector('.response-end-gameO').innerHTML = 'Player ' + winner + ' a gagné !'
+            responseEndGame.style.color = '#ee6677'
             countO++
             document.querySelector('.scoreO').innerHTML = countO/2
         } 
         if(winner === 'X'){
+            document.querySelector('.response-end-gameX').innerHTML = 'Player ' + winner + ' a gagné !'
+            responseEndGame.style.color = '#18BC9C'
             countX++
-            document.querySelector('.scoreO').innerHTML = countX
+            document.querySelector('.scoreX').innerHTML = countX
         }
     }
-    
+    function classList() {
+        cases.forEach(elem => {
+            if(elem.innerHTML === 'O'){
+                elem.style.transition = 'all 300ms ease-out'
+                elem.style.color = '#ee6677'
+            }
+            if(elem.innerHTML === 'X'){
+                elem.style.transition = 'all 300ms ease-out'
+                elem.style.color = '#18BC9C'
+            }
+            
+        })
+    }
     function checkWin() {
         if(cases[0].innerHTML !== '' && cases[0].innerHTML === cases[1].innerHTML && cases[1].innerHTML === cases[2].innerHTML) {
             responseWinner(cases[0].innerHTML)
             egality++
-            console.log('test')
         }
         if(cases[3].innerHTML !== '' && cases[3].innerHTML === cases[4].innerHTML && cases[4].innerHTML === cases[5].innerHTML) {
             responseWinner(cases[3].innerHTML)
@@ -56,7 +69,7 @@ window.addEventListener('DOMContentLoaded', function () {
         
     // }
 
-
+    
     function checkTie() {
         if(cases[0].innerHTML !== "" && cases[1].innerHTML !== "" && cases[2].innerHTML !== "" && cases[3].innerHTML !== "" && cases[4].innerHTML !== "" && cases[5].innerHTML !== "" && cases[6].innerHTML !== "" && cases[7].innerHTML !== "" && cases[8].innerHTML !== "") {
             if(egality === 0) {
@@ -65,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-    function bot() {
+    function bot() {        
         let possibility = []
         cases.forEach(el => {
             if(el.innerHTML === '') {
@@ -73,25 +86,27 @@ window.addEventListener('DOMContentLoaded', function () {
             }
         });
         let value = Math.floor(Math.random() * possibility.length)
-        checkWin()
-        checkTie()
         if(egality===0){
             possibility[value].innerHTML = 'X'
-            
         }
     }
     document.querySelector('.btn-replay').addEventListener('click', () => {
         cases.forEach(el => el.innerHTML = '')
         responseEndGame.innerHTML = ''
+        document.querySelector('.response-end-gameO').innerHTML = ''
+        document.querySelector('.response-end-gameX').innerHTML = ''
         egality = 0
     })
 
     cases.forEach(elem => elem.addEventListener('click', () => {
         if(!elem.innerHTML && egality === 0) {
-            elem.innerHTML = 'O'
+            elem.innerHTML = 'O'        
+            checkWin()
+            checkTie()
             bot()
             checkWin()
             checkTie()
+            classList()
         }
     }))
 })
