@@ -71,17 +71,25 @@ header input[type=submit]:hover {
 }
 
 .mode {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 20px;
     border: 1px solid var(--grey);    
     margin: 2rem auto;
-    width: 30%;
+    width: 400px;
+    padding: 2rem;
+}
+
+.mode-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
     align-items: center;
-    padding: 2rem;
+
 }
 
 .mode input, .mode select {
@@ -90,8 +98,136 @@ header input[type=submit]:hover {
     color: var(--light);
     margin-bottom: 1rem;
     margin-top: .5rem;
+    border-radius: .5em;
+    padding: 0.2rem 1rem;
 }
 
-.mode input {
+#pet-select {
+    padding: 0.5rem 1rem;
+}
 
+.mode button {
+    color: var(--light);
+    background-color: var(--dark);
+    border: 1px solid var(--grey);
+    padding: 0.5rem 2rem;
+    border-radius: 0.5em;
+    margin-top: 1rem;
+    transition: all 300ms ease-in-out;
+    width: 100%;
+}
+
+.mode button:hover {
+    
+    background-color: var(--morpion-green);
+    cursor: pointer;
+}
+
+.mode h2 {
+    margin-bottom: 2rem;
+    color: var(--morpion-green);
+}
+
+.required::after {
+    content: ' *';
+    color: var(--red);
+}
+
+/* Partie 1vs1 css */
+.container-ovo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-ovo h2 {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    margin-top: 3rem;
+}
+
+.container-ovo .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    justify-content: center;
+    border: none;
+    margin-top: 2rem;
+}
+
+.container-ovo .case {
+    width: 100px;
+    height: 100px;
+    color: var(--light);
+    font-size: 5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-ovo .grid .case:nth-child(2) {
+    border: 1px solid var(--light);
+    border-bottom: none;
+    border-top: none;
+}
+.container-ovo .grid .case:nth-child(4) {
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+}
+
+.container-ovo .grid .case:nth-child(5) {
+    border: 1px solid var(--light);
+}
+
+.container-ovo .grid .case:nth-child(6) {
+    border-top: 1px solid var(--light);
+    border-bottom: 1px solid var(--light);
+}
+
+.container-ovo .grid .case:nth-child(8) {
+    border: 1px solid var(--light);
+    border-bottom: none;
+    border-top: none;
+}
+
+.container-ovo .container-reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.container-ovo .container-reset .reset {
+    margin-top: 1rem;
+    background-color: var(--dark);
+    color: var(--light);
+    border: 1px solid var(--grey);
+    padding: .5rem 1rem;
+}
+
+.container-ovo .next-player {
+    margin-top: 1rem;
+}
+
+.hide {
+    display: none;
+}
+
+.playerX {
+    color: var(--morpion-red);
+}
+
+.playerO {
+    color: var(--morpion-green);
 }

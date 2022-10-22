@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <script src="../script/betaTest.js" defer></script>
     <title>Accueil</title>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -23,21 +25,47 @@
     </header>
     <main>
         <div class="container">
-            <form class="mode" action="" method="post">
-                <label for="">Nom du joueur 1 :</label>
-                <input type="text" name="" id="" required>
-                <label for="">Nom du joueur 2 :</label>
-                <input type="text" name="" id="" required>
-                <label for="">Nombre de parties</label>
-                <input type="number" name="" id="" min="1" max="10" required>
-                <label for="">Joueur vs ?</label>
-                <select name="pets" id="pet-select" required>
-                    <option value="">Un vs Ordinaeur</option>
-                    <option value="dog">Un vs Un</option>
-                </select>
-                <button type="submit">Jouer</button>
-            </form>
+            <div class="mode">
+                <form class="mode-form">
+                    <h2>Choisis ton mode de jeu</h2>
+                    <label for="" class="required">Nom du joueur 1 :</label>
+                    <input type="text" name="" id="player-one" value="Joueur" required>
+                    <label for="" class="required">Nom du joueur 2 :</label>
+                    <input type="text" name="" id="player-two" value="Computer" required>
+                    <label for="" class="required">Nombre de parties</label>
+                    <input type="number" name="" id="nb-game" min="1" max="10" value="1" required>
+                    <label for="" class="required">Joueur vs ? </label>
+                    <select name="pets" id="pet-select" required>
+                        <option value="OneVsOne">Un vs Un</option>
+                        <option value="OneVsComputer">Un vs Ordinaeur</option>
+                    </select>
+                </form>
+                <button class="mode-btn">Jouer</button>
+            </div>
+        </div>
+        <div class="container-ovo">
+            <h2 class="title"></h2>
+            <div class="score">
+            </div>
+            <div class="next-player"></div>
+            <div class="grid">
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+                <div class="case"></div>
+            </div>
+            <div class="anounce"></div>
+            <div class="container-reset">
+                <div class="shot">Nombre de coups restants : <span class="shots-remaining"></span></div>
+                <button class="reset">Nouvelle partie</button>
+            </div>
         </div>
     </main>
 </body>
+
 </html>

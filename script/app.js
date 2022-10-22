@@ -14,8 +14,8 @@ window.addEventListener('DOMContentLoaded', function () {
     let scorePlayerO = document.querySelector('#scorePO')
     let scoreX = 0
     let scoreO = 0
-    console.log(scorePlayerX.innerText)
-    console.log(scorePlayerO.innerText)
+    // console.log(scorePlayerX.innerText)
+    // console.log(scorePlayerO.innerText)
     //console.log(numberOfGame)
     // Titre
     title.innerHTML = '<span class="playerX">' + namePlayerX + '</span>' + ' VS ' + '<span class="playerO">' + namePlayerO + '</span>'
