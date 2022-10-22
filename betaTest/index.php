@@ -46,6 +46,9 @@
         <div class="container-ovo">
             <h2 class="title"></h2>
             <div class="score">
+            <div class="playerX" id="scorePX"></div>
+                <div>Score</div>
+                <div class="playerO" id="scorePO"></div>
             </div>
             <div class="next-player"></div>
             <div class="grid">
@@ -59,7 +62,7 @@
                 <div class="case"></div>
                 <div class="case"></div>
             </div>
-            <div class="anounce"></div>
+            <div class="announcer"></div>
             <div class="container-reset">
                 <div class="shot">Nombre de coups restants : <span class="shots-remaining"></span></div>
                 <button class="reset">Nouvelle partie</button>
