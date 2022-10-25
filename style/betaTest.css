@@ -167,7 +167,6 @@ header input[type=submit]:hover {
 .container-ovo .case {
     width: 100px;
     height: 100px;
-    color: var(--light);
     font-size: 5rem;
     display: flex;
     align-content: center;

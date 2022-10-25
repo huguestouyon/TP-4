@@ -84,7 +84,7 @@ window.addEventListener('DOMContentLoaded', function () {
             if (activePlayer === 'X') {
                 announce(pxWin) // annonce la victoire pour X
                 shot.classList.add('hide')
-                localStorage.ƒsetItem('numberGame', localStorage.getItem('numberGame') - 1)
+                localStorage.setItem('numberGame', localStorage.getItem('numberGame') - 1)
                 scoreX++
                 scorePlayerX.innerHTML = scoreX
                 if (localStorage.getItem('numberGame') == 0) {
